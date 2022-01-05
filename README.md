@@ -83,24 +83,32 @@ The following screenshot displays the result of running `docker ps` after succes
 
 ### Target Machines & Beats
 This ELK server is configured to monitor the following machines:
-- _TODO: List the IP addresses of the machines you are monitoring_
+- Web1 (10.0.0.5)
+- Web2 (10.0.0.8)
+- Web3 (10.0.0.9)
 
 We have installed the following Beats on these machines:
-- _TODO: Specify which Beats you successfully installed_
+- Filebeat
+- Metricbeat
+
 
 These Beats allow us to collect the following information from each machine:
-- _TODO: In 1-2 sentences, explain what kind of data each beat collects, and provide 1 example of what you expect to see. E.g., `Winlogbeat` collects Windows logs, which we use to track user logon events, etc._
+- Filebeat: Lightweight Log Analysis & Elasticsearch: Filebeat watches for log files and events. It will provide information on attacks if an actor was attempting to change certain log files, it will be time stamped and show the information to the person montitoring using the ELK server. 
+- Metricbeat: Lightweight Shipper for Metrics: Metricbeat collects statistics and metrics from the services running on the server, as well as the operating system. It will track things like CPU usage, memory, and up/downtime information.
 
 ### Using the Playbook
 In order to use the playbook, you will need to have an Ansible control node already configured. Assuming you have such a control node provisioned: 
 
 SSH into the control node and follow the steps below:
-- Copy the _____ file to _____.
-- Update the _____ file to include...
-- Run the playbook, and navigate to ____ to check that the installation worked as expected.
-
-_TODO: Answer the following questions to fill in the blanks:_
-- _Which file is the playbook? Where do you copy it?_
+- Copy the configuration files (filebeat-config.yml and metricbeat-config.yml)  file to /etc/ansible/files.
+- Update the /etc/ansible/hosts file to include the internal IP address of the ELK server (10.1.0.4)
+- Run the playbook, and navigate to http://(public_ip_of_elk_server):5601/app/kibana to check that the installation worked as expected.
+- _Which file is the playbook? Where do you copy it?
+  - The playbook files are:   
+  - ![install-elk.yml](Ansible/install-elk.yml)
+  - ![filebeat-playbook.yml](Ansible/filebeat-playbook.yml)
+  - ![metricbeat-playbook.yml](Ansible/metricbeat-playbook.yml)
+  - These files will need to be copied to the /etc/ansible directory to be run.
 - _Which file do you update to make Ansible run the playbook on a specific machine? How do I specify which machine to install the ELK server on versus which to install Filebeat on?_
 - _Which URL do you navigate to in order to check that the ELK server is running?
 
