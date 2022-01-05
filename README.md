@@ -128,3 +128,7 @@ As a **Bonus**, provide the specific commands the user will need to run to downl
 - Open http://(public_ip_of_elk_server):5601/app/kibana and enable metrics to confirm proper installation
 
 - To download the beats configuration files, you will use curl -L -O (url of beats files) > /etc/ansible to download the config files for metric and file beat to copy the information to the webservers through the playbook, allowing them to properly monitor information from those servers. 
+
+Sources
+- Filebeat overviewedit. Elastic. (n.d.). Retrieved January 5, 2022, from https://www.elastic.co/guide/en/beats/filebeat/current/filebeat-overview.html 
+- Metricbeat overviewedit. Elastic. (n.d.). Retrieved January 5, 2022, from https://www.elastic.co/guide/en/beats/metricbeat/current/metricbeat-overview.html 
