@@ -114,4 +114,17 @@ SSH into the control node and follow the steps below:
 - Which URL do you navigate to in order to check that the ELK server is running
   - http://(public_ip_of_elk_server):5601/app/kibana
 
-_As a **Bonus**, provide the specific commands the user will need to run to download the playbook, update the files, etc._
+As a **Bonus**, provide the specific commands the user will need to run to download the playbook, update the files, etc.
+- ssh azadmin@(jumpboxip)
+- (get ansible container name) sudo docker container list -a
+- sudo docker start (ansible container name)
+- sudo docker attach (ansible container name)
+- cd etc/ansible
+- ansible-playbook install-elk.yml
+- cd etc/ansible 
+- ansible-playbook filebeat-playbook.yml
+- cd etc/ansible
+- ansible-playbook metricbeat-playbook.yml
+- Open http://(public_ip_of_elk_server):5601/app/kibana and enable metrics to confirm proper installation
+
+- To download the beats configuration files, you will use curl -L -O (url of beats files) > /etc/ansible to download the config files for metric and file beat to copy the information to the webservers through the playbook, allowing them to properly monitor information from those servers. 
