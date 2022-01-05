@@ -103,13 +103,15 @@ SSH into the control node and follow the steps below:
 - Copy the configuration files (filebeat-config.yml and metricbeat-config.yml)  file to /etc/ansible/files.
 - Update the /etc/ansible/hosts file to include the internal IP address of the ELK server (10.1.0.4)
 - Run the playbook, and navigate to http://(public_ip_of_elk_server):5601/app/kibana to check that the installation worked as expected.
-- _Which file is the playbook? Where do you copy it?
+- Which file is the playbook? Where do you copy it?
   - The playbook files are:   
   - ![install-elk.yml](Ansible/install-elk.yml)
   - ![filebeat-playbook.yml](Ansible/filebeat-playbook.yml)
   - ![metricbeat-playbook.yml](Ansible/metricbeat-playbook.yml)
   - These files will need to be copied to the /etc/ansible directory to be run.
-- _Which file do you update to make Ansible run the playbook on a specific machine? How do I specify which machine to install the ELK server on versus which to install Filebeat on?_
-- _Which URL do you navigate to in order to check that the ELK server is running?
+- Which file do you update to make Ansible run the playbook on a specific machine? How do I specify which machine to install the ELK server on versus which to install Filebeat on?
+  - You will need to update the etc/ansible/hosts.cfg file to run the playbook on a specific machine. In order to specify which machine, you will need put the IP of the machine under the correct section of the hosts configuration file to confirm which playbook will be run on which machine. 
+- Which URL do you navigate to in order to check that the ELK server is running
+  - http://(public_ip_of_elk_server):5601/app/kibana
 
 _As a **Bonus**, provide the specific commands the user will need to run to download the playbook, update the files, etc._
